@@ -1,5 +1,5 @@
 {
-    "name": "camdjn/simple-laravel5-translation-manager",
+    "name": "camdjn/laravel-translation-manager",
     "description": "Manage Laravel Translations",
     "keywords": ["laravel", "translations", "translator"],
     "license": "MIT",

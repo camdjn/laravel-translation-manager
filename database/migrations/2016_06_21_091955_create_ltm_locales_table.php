@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStmLocalesTable extends Migration
+class CreateLtmLocalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateStmLocalesTable extends Migration
      */
         public function up()
     {
-        Schema::create('stm_locales', function(Blueprint $table)
+        Schema::create('ltm_locales', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('label');
@@ -27,6 +27,6 @@ class CreateStmLocalesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stm_locales');
+        Schema::drop('ltm_locales');
     }
 }

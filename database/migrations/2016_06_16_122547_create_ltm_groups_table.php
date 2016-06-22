@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStmGroupsTable extends Migration
+class CreateLtmGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateStmGroupsTable extends Migration
      */
         public function up()
     {
-        Schema::create('stm_groups', function(Blueprint $table)
+        Schema::create('ltm_groups', function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('label');
@@ -27,6 +27,6 @@ class CreateStmGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stm_groups');
+        Schema::drop('ltm_groups');
     }
 }

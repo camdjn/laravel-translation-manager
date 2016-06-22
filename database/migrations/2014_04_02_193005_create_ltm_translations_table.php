@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStmTranslationsTable extends Migration {
+class CreateLtmTranslationsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateStmTranslationsTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('stm_translations', function(Blueprint $table)
+        Schema::create('ltm_translations', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('group_id');
@@ -31,7 +31,7 @@ class CreateStmTranslationsTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('stm_translations');
+        Schema::drop('ltm_translations');
 	}
 
 }

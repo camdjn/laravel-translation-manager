@@ -11,7 +11,7 @@ class ImportCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'stm:import';
+    protected $name = 'ltm:import';
 
     /**
      * The console command description.

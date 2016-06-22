@@ -11,7 +11,7 @@ class ExportCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'stm:export';
+    protected $name = 'ltm:export';
 
     /**
      * The console command description.

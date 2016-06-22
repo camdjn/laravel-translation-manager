@@ -82,7 +82,7 @@ You can also use the commands below.
 
 The import command will search through app/lang and load all strings in the database, so you can easily manage them.
 
-    $ php artisan stm:import
+    $ php artisan ltm:import
 
 ### Find translations in source
 
@@ -90,7 +90,7 @@ The Find command/button will look search for all php/twig files in the app direc
 The found keys will be added to the database, so they can be easily translated.
 This can be done through the webinterface, or via an Artisan command.
 
-    $ php artisan stm:find
+    $ php artisan ltm:find
 
 ### Export command
 
@@ -98,7 +98,7 @@ The export command will write the contents of the database back to app/lang php 
 This will overwrite existing translations and remove all comments, so make sure to backup your data before using.
 Supply the group name to define which groups you want to publish.
 
-    $ php artisan stm:export <group>
+    $ php artisan ltm:export <group>
 
 For example, `php artisan translations:export reminders` when you have 2 locales (en/nl), will write to `app/lang/en/reminders.php` and `app/lang/nl/reminders.php`
 
@@ -106,13 +106,13 @@ For example, `php artisan translations:export reminders` when you have 2 locales
 
 The clean command will search for all translation that are NULL and delete them, so your interface is a bit cleaner. Note: empty translations are never exported.
 
-    $ php artisan stm:clean
+    $ php artisan ltm:clean
 
 ### Reset command
 
 The reset command simply clears all translation in the database, so you can start fresh (by a new import). Make sure to export your work if needed before doing this.
 
-    $ php artisan stm:reset
+    $ php artisan ltm:reset
 
 ### Detect missing translations
 

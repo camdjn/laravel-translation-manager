@@ -10,7 +10,7 @@ class CleanCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'stm:clean';
+    protected $name = 'ltm:clean';
 
     /**
      * The console command description.

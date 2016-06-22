@@ -11,7 +11,7 @@ class FindCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'stm:find';
+    protected $name = 'ltm:find';
 
     /**
      * The console command description.

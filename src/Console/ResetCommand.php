@@ -10,7 +10,7 @@ class ResetCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'stm:reset';
+    protected $name = 'ltm:reset';
 
     /**
      * The console command description.

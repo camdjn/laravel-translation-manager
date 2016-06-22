@@ -23,7 +23,7 @@ This way, translations can be saved in git history and no overhead is introduced
 
 Require this package in your composer.json and run composer update (or run `composer require --dev camdjn/laravel-translation-manager` directly):
 
-    "camdjn/simple-laravel5-translation-manager": "1.0.1"
+    "camdjn/simple-laravel5-translation-manager": "1.0.*"
 
 After updating composer, add the ServiceProvider to the providers array in config/app.php
 

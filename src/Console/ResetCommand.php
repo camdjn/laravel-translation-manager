@@ -1,7 +1,7 @@
-<?php namespace Barryvdh\TranslationManager\Console;
+<?php namespace camdjn\TranslationManager\Console;
 
 use Illuminate\Console\Command;
-use Barryvdh\TranslationManager\Manager;
+use camdjn\TranslationManager\Manager;
 
 class ResetCommand extends Command {
 
@@ -10,16 +10,16 @@ class ResetCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'translations:reset';
+    protected $name = 'stm:reset';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Delete all translations from the database';
+    protected $description = 'Delete all groups and owned translations from the database';
 
-    /** @var \Barryvdh\TranslationManager\Manager  */
+    /** @var \camdjn\TranslationManager\Manager  */
     protected $manager;
 
     public function __construct(Manager $manager)
@@ -37,6 +37,10 @@ class ResetCommand extends Command {
     {
         $this->manager->truncateTranslations();
         $this->info("All translations are deleted");
+        $this->manager->truncateGroups();
+        $this->info("All Groups are deleted");
+        $this->manager->truncateLocales();
+        $this->info("All locales are deleted");
     }
 
 

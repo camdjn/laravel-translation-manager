@@ -1,6 +1,17 @@
-## Laravel 5 Translation Manager
+## Laravel 5 Simple Translation Manager
 
-### For Laravel 4, please use the [0.1 branch](https://github.com/barryvdh/laravel-translation-manager/tree/0.1)!
+### Laravel >= 5.2
+
+**Based on [Barryvdh\laravel-translation-manager](https://github.com/Barryvdh/laravel-translation-manager).**
+**Thank you**
+
+## What's new ?##
+
+###Support any folder deep###
+###No Ajax###
+###No need to reload the page after import###
+
+
 
 This is a package to manage Laravel translation files.
 It does not replace the Translation system, only import/export the php files to a database and make them editable through a webinterface.
@@ -14,35 +25,33 @@ The workflow would be:
 
 This way, translations can be saved in git history and no overhead is introduced in production.
 
-![Screenshot](http://i.imgur.com/4th2krf.png)
-
 ## Installation
 
-Require this package in your composer.json and run composer update (or run `composer require barryvdh/laravel-translation-manager` directly):
+Require this package in your composer.json and run composer update (or run `composer require --dev camdjn/simple-laravel5-translation-manager` directly):
 
-    "barryvdh/laravel-translation-manager": "0.2.x"
+    "camdjn/simple-laravel5-translation-manager": "1.0.1"
 
 After updating composer, add the ServiceProvider to the providers array in config/app.php
 
-    'Barryvdh\TranslationManager\ManagerServiceProvider',
+    camdjn\TranslationManager\ManagerServiceProvider::class
 
 You need to run the migrations for this package.
 
-    $ php artisan vendor:publish --provider="Barryvdh\TranslationManager\ManagerServiceProvider" --tag=migrations
+    $ php artisan vendor:publish --provider="camdjn\TranslationManager\ManagerServiceProvider" --tag=migrations
     $ php artisan migrate
 
 You need to publish the config file for this package. This will add the file `config/translation-manager.php`, where you can configure this package.
 
-    $ php artisan vendor:publish --provider="Barryvdh\TranslationManager\ManagerServiceProvider" --tag=config
+    $ php artisan vendor:publish --provider="camdjn\TranslationManager\ManagerServiceProvider" --tag=config
 
 Routes are added in the ServiceProvider. You can set the group parameters for the routes in the configuration.
 You can change the prefix or filter/middleware for the routes. If you want full customisation, you can extend the ServiceProvider and override the `map()` function.
 
 This example will make the translation manager available at `http://yourdomain.com/translations`
 
-### Laravel >= 5.2
+### Configuration
 
-The configuration file by default only includes the `auth` middleware, but the latests changes in Laravel 5.2 makes it that session variables are only accessible when your route includes the `web` middleware. In order to make this package work on Laravel 5.2, you will have to change the route/middleware setting from the default 
+The configuration file by default only includes the `auth` middleware, but the latests changes in Laravel 5.2 makes it that session variables are only accessible when your route includes the `web` middleware. In order to make this package work on Laravel 5.2, you will have to change the route/middleware setting from the default
 
 ```
     'route' => [
@@ -63,8 +72,6 @@ to
     ],
 ```
 
-**NOTE:** *This is only needed in Laravel 5.2 (and up!)*
-
 ## Usage
 
 ### Web interface
@@ -81,10 +88,7 @@ You can also use the commands below.
 
 The import command will search through app/lang and load all strings in the database, so you can easily manage them.
 
-    $ php artisan translations:import
-    
-Note: By default, only new strings are added. Translations already in the DB are kept the same. If you want to replace all values with the ones from the files, 
-add the `--replace` (or `-R`) option: `php artisan translations:import --replace`
+    $ php artisan stm:import
 
 ### Find translations in source
 
@@ -92,7 +96,7 @@ The Find command/button will look search for all php/twig files in the app direc
 The found keys will be added to the database, so they can be easily translated.
 This can be done through the webinterface, or via an Artisan command.
 
-    $ php artisan translations:find
+    $ php artisan stm:find
 
 ### Export command
 
@@ -100,7 +104,7 @@ The export command will write the contents of the database back to app/lang php 
 This will overwrite existing translations and remove all comments, so make sure to backup your data before using.
 Supply the group name to define which groups you want to publish.
 
-    $ php artisan translations:export <group>
+    $ php artisan stm:export <group>
 
 For example, `php artisan translations:export reminders` when you have 2 locales (en/nl), will write to `app/lang/en/reminders.php` and `app/lang/nl/reminders.php`
 
@@ -108,15 +112,13 @@ For example, `php artisan translations:export reminders` when you have 2 locales
 
 The clean command will search for all translation that are NULL and delete them, so your interface is a bit cleaner. Note: empty translations are never exported.
 
-    $ php artisan translations:clean
+    $ php artisan stm:clean
 
 ### Reset command
 
 The reset command simply clears all translation in the database, so you can start fresh (by a new import). Make sure to export your work if needed before doing this.
 
-    $ php artisan translations:reset
-
-
+    $ php artisan stm:reset
 
 ### Detect missing translations
 
@@ -125,17 +127,8 @@ To detect missing translations, we can swap the Laravel TranslationServicepProvi
 In your config/app.php, comment out the original TranslationServiceProvider and add the one from this package:
 
     //'Illuminate\Translation\TranslationServiceProvider',
-    'Barryvdh\TranslationManager\TranslationServiceProvider',
+    'camdjn\TranslationManager\TranslationServiceProvider',
 
 This will extend the Translator and will create a new database entry, whenever a key is not found, so you have to visit the pages that use them.
 This way it shows up in the webinterface and can be edited and later exported.
 You shouldn't use this in production, just in production to translate your views, then just switch back.
-
-## TODO
-
-This package is still very alpha. Few thinks that are on the todo-list:
-
-    - Add locales/groups via webinterface
-    - Improve webinterface (more selection/filtering, behavior of popup after save etc)
-    - Seed existing languages (https://github.com/caouecs/Laravel4-lang)
-    - Suggestions are welcome :)

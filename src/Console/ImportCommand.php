@@ -1,6 +1,6 @@
-<?php namespace Barryvdh\TranslationManager\Console;
+<?php namespace camdjn\TranslationManager\Console;
 
-use Barryvdh\TranslationManager\Manager;
+use camdjn\TranslationManager\Manager;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -11,7 +11,7 @@ class ImportCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'translations:import';
+    protected $name = 'stm:import';
 
     /**
      * The console command description.
@@ -20,7 +20,7 @@ class ImportCommand extends Command {
      */
     protected $description = 'Import translations from the PHP sources';
 
-    /** @var  \Barryvdh\TranslationManager\Manager  */
+    /** @var  \camdjn\TranslationManager\Manager  */
     protected $manager;
 
     public function __construct(Manager $manager)
@@ -37,8 +37,7 @@ class ImportCommand extends Command {
      */
     public function fire()
     {
-        $replace = $this->option('replace');
-        $counter = $this->manager->importTranslations($replace);
+        $counter = $this->manager->importTranslations();
         $this->info('Done importing, processed '.$counter. ' items!');
 
     }

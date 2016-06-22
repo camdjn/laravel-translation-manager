@@ -1,6 +1,6 @@
-<?php namespace Barryvdh\TranslationManager\Console;
+<?php namespace camdjn\TranslationManager\Console;
 
-use Barryvdh\TranslationManager\Manager;
+use camdjn\TranslationManager\Manager;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -11,7 +11,7 @@ class FindCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'translations:find';
+    protected $name = 'stm:find';
 
     /**
      * The console command description.
@@ -20,7 +20,7 @@ class FindCommand extends Command {
      */
     protected $description = 'Find translations in php/twig files';
 
-    /** @var  \Barryvdh\TranslationManager\Manager  */
+    /** @var  \camdjn\TranslationManager\Manager  */
     protected $manager;
 
     public function __construct(Manager $manager)

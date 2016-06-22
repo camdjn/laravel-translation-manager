@@ -1,4 +1,4 @@
-<?php namespace Barryvdh\TranslationManager;
+<?php namespace camdjn\TranslationManager;
 
 use Illuminate\Translation\Translator as LaravelTranslator;
 use Illuminate\Events\Dispatcher;
@@ -25,9 +25,8 @@ class Translator extends LaravelTranslator {
 
             // Reget with fallback
             $result = parent::get($key, $replace, $locale, $fallback);
-            
-        }
 
+        }
         return $result;
     }
 

@@ -72,7 +72,7 @@ class ManagerServiceProvider extends ServiceProvider {
         $viewPath = __DIR__.'/../resources/views';
         $this->loadViewsFrom($viewPath, 'translation-manager');
         $this->publishes([
-            $viewPath => base_path('resources/views/vendor/simple-laravel5-translation-manager'),
+            $viewPath => base_path('resources/views/vendor/laravel-translation-manager'),
         ], 'views');
 
         $migrationPath = __DIR__.'/../database/migrations';

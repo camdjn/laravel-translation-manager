@@ -1,16 +1,10 @@
 ## Laravel 5 Simple Translation Manager
 
-### Laravel >= 5.2
-
-**Based on [Barryvdh\laravel-translation-manager](https://github.com/Barryvdh/laravel-translation-manager).**
-**Thank you**
-
 ## What's new ?##
 
 ###Support any folder deep###
 ###No Ajax###
 ###No need to reload the page after import###
-
 
 
 This is a package to manage Laravel translation files.

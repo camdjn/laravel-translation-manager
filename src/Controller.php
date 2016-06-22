@@ -114,7 +114,8 @@ class Controller extends BaseController
     public function postFind()
     {
         $numFound = $this->manager->findTranslations();
-        return ['status' => 'ok', 'counter' => (int) $numFound];
+
+        return back()->with('findCounter', $numFound);
     }
 
     public function postPublish($group)

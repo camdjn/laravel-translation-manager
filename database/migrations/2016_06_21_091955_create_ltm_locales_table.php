@@ -10,7 +10,7 @@ class CreateLtmLocalesTable extends Migration
      *
      * @return void
      */
-        public function up()
+    public function up()
     {
         Schema::create('ltm_locales', function(Blueprint $table)
         {

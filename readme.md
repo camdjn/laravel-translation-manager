@@ -21,7 +21,7 @@ This way, translations can be saved in git history and no overhead is introduced
 
 ## Installation
 
-Require this package in your composer.json and run composer update (or run `composer require --dev camdjn/simple-laravel5-translation-manager` directly):
+Require this package in your composer.json and run composer update (or run `composer require --dev camdjn/laravel-translation-manager` directly):
 
     "camdjn/simple-laravel5-translation-manager": "1.0.1"
 

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Group extends Model{
 
-    protected $table = 'stm_groups';
+    protected $table = 'ltm_groups';
     protected $guarded = array('created_at', 'updated_at');
     protected $fillable = ['label'];
 

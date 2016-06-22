@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Locale extends Model{
 
-    protected $table = 'stm_locales';
+    protected $table = 'ltm_locales';
     protected $guarded = array('created_at', 'updated_at');
     protected $fillable = ['label'];
 

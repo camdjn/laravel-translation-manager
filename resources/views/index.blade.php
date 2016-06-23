@@ -138,8 +138,9 @@
                     @if(!$allTranslations->where('locale_id',$locale->id)->where('key',$keys->first()->key)->isEmpty() &&
                       !is_null($allTranslations->where('locale_id',$locale->id)->where('key',$keys->first()->key)->first()->value))
                       <textarea name="value" class="form-control" rows="3">{{$allTranslations->where('locale_id',$locale->id)->where('key', $keys->first()->key)->first()->value }}</textarea>
-                      <a class="btn btn-danger" href="{{ action('\camdjn\TranslationManager\Controller@getEmpty')}}"><span class="glyphicon glyphicon-trash"></span></a>
                       <input type="submit" value="edit" class="btn btn-primary">
+                      <a class="btn btn-danger" href="{{ action('\camdjn\TranslationManager\Controller@getEmpty', [$group, $locale, $key])}}"><span class="glyphicon glyphicon-trash"></span></a>
+
                     @else
                       <textarea name="value" class="form-control" rows="3" placeholder="empty"></textarea>
                       <input type="submit" value="add" class="btn btn-success">

@@ -138,6 +138,7 @@
                     @if(!$allTranslations->where('locale_id',$locale->id)->where('key',$keys->first()->key)->isEmpty() &&
                       !is_null($allTranslations->where('locale_id',$locale->id)->where('key',$keys->first()->key)->first()->value))
                       <textarea name="value" class="form-control" rows="3">{{$allTranslations->where('locale_id',$locale->id)->where('key', $keys->first()->key)->first()->value }}</textarea>
+                      <a class="btn btn-danger" href="{{ action('\camdjn\TranslationManager\Controller@getEmpty')}}"><span class="glyphicon glyphicon-trash"></span></a>
                       <input type="submit" value="edit" class="btn btn-primary">
                     @else
                       <textarea name="value" class="form-control" rows="3" placeholder="empty"></textarea>
@@ -149,10 +150,9 @@
               @endforeach
               @if($deleteEnabled)
                 <td>
-                  <a href="{{ action('\camdjn\TranslationManager\Controller@getDelete', [$group, $keys->first()->key]) }}"  data-confirm="Are you sure you want to delete the translations for '{{ $keys->first()->key}}'?"><span class="glyphicon glyphicon-trash"></span></a>
+                  <a href="{{ action('\camdjn\TranslationManager\Controller@getDelete', [$group, $keys->first()->key]) }}"<span class="glyphicon glyphicon-trash"></span></a>
                 </td>
               @endif
-
 
             </tr>
           @endforeach

@@ -106,7 +106,6 @@ class Controller extends BaseController
         $translation = Translation::where('group_id', $group)->where('locale_id', $locale)->where('key', $key)->first();
         $translation->value = null;
         $translation->save();
-
         return back();
     }
 

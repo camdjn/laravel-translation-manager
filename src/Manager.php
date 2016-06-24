@@ -85,7 +85,7 @@ class Manager{
 
                         $value = (string) $value;
 
-                        $translation = Translation::firstOrNew([
+                        $translation = new Translation([
                             'locale_id' => $l->id,
                             'key' => $key
                         ]);

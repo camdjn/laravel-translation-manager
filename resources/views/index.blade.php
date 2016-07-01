@@ -142,7 +142,7 @@
                       <a class="btn btn-danger" href="{{ action('\camdjn\TranslationManager\Controller@getEmpty',[$group->id, $locale->id, $keys->first()->key])}}"><span class="glyphicon glyphicon-trash"></span></a>
 
                     @else
-                      <textarea name="value" class="form-control" rows="3" placeholder="empty"></textarea>
+                      <textarea name="value" class="form-control" rows="3" placeholder="empty {{ $$keys->first()->key.'-'.$locale}}"></textarea>
                       <input type="submit" value="add" class="btn btn-success">
                     @endif
 
